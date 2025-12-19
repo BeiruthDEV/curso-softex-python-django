@@ -1,18 +1,18 @@
 from django.urls import path
 from .views import (
-    ListaTarefasAPIView, 
-    DetalheTarefaAPIView, 
-    EstatisticasTarefaAPIView, 
-    DuplicarTarefaAPIView,
-    ConcluirTodasTarefasAPIView
+    ListaTarefasAPIView,
+    DetalheTarefaAPIView,
+    MeView,
+    ChangePasswordView,
+    UserStatsAPIView,
 )
 
-app_name = 'core'
+app_name = "core"
 
 urlpatterns = [
-    path('tarefas/', ListaTarefasAPIView.as_view(), name='lista-tarefas'),
-    path('tarefas/<int:pk>/', DetalheTarefaAPIView.as_view(), name='detalhe-tarefa'),
-    path('tarefas/estatisticas/', EstatisticasTarefaAPIView.as_view(), name='estatisticas-tarefas'),
-    path('tarefas/<int:pk>/duplicar/', DuplicarTarefaAPIView.as_view(), name='duplicar-tarefa'),
-    path('tarefas/concluir-todas/', ConcluirTodasTarefasAPIView.as_view(), name='concluir-todas'),
+    path("tarefas/", ListaTarefasAPIView.as_view(), name="lista-tarefas"),
+    path("tarefas/<int:pk>/", DetalheTarefaAPIView.as_view(), name="detalhe-tarefa"),
+    path("me/", MeView.as_view(), name="me"),
+    path("change-password/", ChangePasswordView.as_view(), name="change-password"),
+    path("stats/", UserStatsAPIView.as_view(), name="user-stats"),
 ]
